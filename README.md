@@ -173,3 +173,11 @@ Hospital Simulation:
 3. QuantumIoTSploit (Speculative Module) :
     Leverages quantum-inspired optimization for breaking lightweight IoT crypto.
     Example: Attacking post-quantum Zigbee handshakes.
+
+
+--------------------------------------------------------------------------------
+
+
+This Project or Prototype is under construction.
+
+--------------------------------------------------------------------------------
