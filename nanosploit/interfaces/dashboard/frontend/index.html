@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NanoSploit Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div id="app">
+        <h1>NanoSploit Dashboard</h1>
+        <p>Visualization front-end for IoT/Embedded Exploit Operations.</p>
+        <div id="status"></div>
+        <hr>
+        <h2>Scenarios</h2>
+        <ul id="scenarios"></ul>
+        <hr>
+        <h2>Modules</h2>
+        <ul id="modules"></ul>
+        <hr>
+        <h2>Report Viewer</h2>
+        <select id="reportSelect">
+            <option value="hospital_sim">Hospital Simulation</option>
+            <option value="smart_city_attack">Smart City Attack</option>
+        </select>
+        <button onclick="loadReport()">Load Report</button>
+        <pre id="report"></pre>
+        <script>
+            fetch('/api/status').then(r => r.json()).then(data => {
+                document.getElementById('status').innerText = 'Status: ' + data.status;
+            });
+            fetch('/api/scenarios').then(r => r.json()).then(data => {
+                let ul = document.getElementById('scenarios');
+                data.scenarios.forEach(s => {
+                    let li = document.createElement('li');
+                    li.innerText = s;
+                    ul.appendChild(li);
+                });
+            });
+            fetch('/api/modules').then(r => r.json()).then(data => {
+                let ul = document.getElementById('modules');
+                data.modules.forEach(m => {
+                    let li = document.createElement('li');
+                    li.innerText = m.name + ' (' + m.status + ')';
+                    ul.appendChild(li);
+                });
+            });
+            function loadReport() {
+                let reportId = document.getElementById('reportSelect').value;
+                fetch('/api/report/' + reportId).then(r => r.json()).then(data => {
+                    document.getElementById('report').innerText = JSON.stringify(data, null, 2);
+                });
+            }
+        </script>
+    </div>
+</body>
+</html>

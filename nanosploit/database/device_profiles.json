@@ -1,0 +1,12 @@
+{
+    "_comment": "Metadata for IoT/embedded devices. Add device profiles as needed.",
+    "devices": [
+        {
+            "name": "Example Infusion Pump",
+            "vendor": "AcmeMed",
+            "arch": "ARM Cortex-M",
+            "firmware_version": "1.0.0",
+            "notes": "Sample device profile."
+        }
+    ]
+}

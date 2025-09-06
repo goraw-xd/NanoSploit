@@ -1,0 +1,18 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #181c20;
+    color: #e0e0e0;
+    margin: 0;
+    padding: 0;
+}
+#app {
+    max-width: 800px;
+    margin: 40px auto;
+    background: #23272b;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    padding: 32px;
+}
+h1 {
+    color: #00e6e6;
+}
